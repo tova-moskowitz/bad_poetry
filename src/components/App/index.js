@@ -3,14 +3,24 @@
 // React: https://facebook.github.io/react/
 
 import React from 'react';
-import HelloWorld from '../HelloWorld';
+import Sentence from '../Sentence';
 
-function App() {
-  return (
-    <div>
-      <HelloWorld />
-    </div>
-  );
-}
+// function App() {
+//   return (
+//     <div>
+//       <HelloWorld />
+//     </div>
+//   );
+// }
+
+var App = React.createClass({
+  render: function(){
+    return (
+        <div>
+            <Sentence name={'Tova'} />
+        </div>
+    );
+  }
+});
 
 export default App;
