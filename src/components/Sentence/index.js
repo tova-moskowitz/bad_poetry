@@ -9,17 +9,60 @@ const Sentence = React.createClass({
     'flibberglitted',
     'salmony',
     'beknighted',
-    'scintillating'
+    'scintillating',
+    'flabbergasted',
+    'distracted',
+    'shattered',
+    'foamy',
+    'primitive',
+    'blathery',
+    'crumpled'
   ],
-  getAdjective: function(){
-    const index = Math.floor(Math.random() * this.adjectives.length);
-    return this.adjectives[index];
+  nouns: [
+    'handkerchief',
+    'blognoggin',
+    'umbrella',
+    'big foot',
+    'blisterbubble'
+  ],
+  verbs: [
+    'skitter',
+    'froth',
+    'zoom forward',
+    'stew',
+    'operate',
+    'stomp'
+  ],
+  adverbs: [
+    'speedily',
+    'clammily',
+    'frighteningly',
+    'knowingly',
+    'blisteringly'
+  ],
+  pronouns: [
+    'am I',
+    'art thou',
+    'is thee',
+    'art we',
+    'ist he',
+    'ist she',
+    'ist it'
+  ],
+  possessives: [
+    'mine',
+    'thy',
+    'thine',
+    'his',
+    'her'
+  ],
+  getWord: function(posp){
+    const index = Math.floor(Math.random() * posp.length);
+    return posp[index];
   },
   render: function() {
-    // return <div>Hellooooo {this.props.name}</div>;
-    return <div>Oh {this.getAdjective()} fliskerbubble, <br /> how divine art thou</div>;
+    return <div>Oh {this.getWord(this.adjectives)} {this.getWord(this.nouns)}, <br /> how {this.getWord(this.adjectives)} {this.getWord(this.pronouns)}, <br/> when {this.getWord(this.possessives)} {this.getWord(this.nouns)} doth {this.getWord(this.adverbs)} {this.getWord(this.verbs)}</div>;
   },
 });
-
 
 export default Sentence;
