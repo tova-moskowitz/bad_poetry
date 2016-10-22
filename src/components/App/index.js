@@ -5,6 +5,7 @@
 import React from 'react';
 import Sentence from '../Sentence';
 
+//ecma6 syntax, and a stateless component
 // function App() {
 //   return (
 //     <div>
@@ -17,7 +18,7 @@ var App = React.createClass({
   render: function(){
     return (
         <div>
-            <Sentence name={'Tova'} />
+            <Sentence />
         </div>
     );
   }
