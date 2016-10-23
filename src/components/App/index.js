@@ -4,8 +4,9 @@
 
 import React from 'react';
 import Sentence from '../Sentence';
+import RefreshPoemButton from '../RefreshPoemButton';
 
-//ecma6 syntax, and a stateless component
+//example of ES6 syntax, and a stateless component
 // function App() {
 //   return (
 //     <div>
@@ -15,10 +16,14 @@ import Sentence from '../Sentence';
 // }
 
 var App = React.createClass({
-  render: function(){
+  refreshPoem: function() {
+      console.log("CLICKED");
+  },
+  render: function() {
     return (
         <div>
             <Sentence />
+            <RefreshPoemButton onclick={this.refreshPoem.bind}/>
         </div>
     );
   }

@@ -71,7 +71,7 @@ const Sentence = React.createClass({
     return wordsArray[index];
   },
   render: function() {
-    return <div>Oh {this.getWord(this.adjectives)} {this.getWord(this.nounsSubject)}, <br /> how {this.getWord(this.adjectives)} {this.getWord(this.pronouns)}, <br/> when {this.getWord(this.possessives)} {this.getWord(this.nounsObject)} doth  {this.getWord(this.verbs)}</div>;
+    return <div>Oh {this.getWord(this.adjectives)} {this.getWord(this.nounsSubject)}, <br /> how {this.getWord(this.adjectives)} {this.getWord(this.pronouns)}, <br/> when {this.getWord(this.possessives)} {this.getWord(this.nounsObject)} doth {this.getWord(this.verbs)}</div>;
   },
 });
 
