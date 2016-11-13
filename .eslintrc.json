@@ -10,5 +10,15 @@
   ],
 
   "rules": {
+      "react/prefer-es6-class": 0,
+      "react/prefer-stateless-function": 0,
+      "object-shorthand": 1,
+      "comma-dangle": 0,
+      "indent": ["error", 2, { "SwitchCase": 2, "VariableDeclarator": 2, "outerIIFEBody": 2 }],
+      "react/jsx-indent-props": ["error", 2],
+      "react/jsx-indent": ["error", 2],
+      "object-shorthand": ["off", "always"],
+      "func-names": ["off", "always"]
+
   }
 }

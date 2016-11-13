@@ -5,21 +5,12 @@
 import React from 'react';
 import Sentence from '../Sentence';
 
-//ecma6 syntax, and a stateless component
-// function App() {
-//   return (
-//     <div>
-//       <HelloWorld />
-//     </div>
-//   );
-// }
-
-var App = React.createClass({
-  render: function(){
+const App = React.createClass({
+  render: function () {
     return (
-        <div>
-            <Sentence />
-        </div>
+      <div>
+        <Sentence />
+      </div>
     );
   }
 });
