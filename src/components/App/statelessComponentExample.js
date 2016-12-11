@@ -3,11 +3,11 @@ import HelloWorld from '../HelloWorld';
 
 // ecma6 syntax, and a stateless component
 function App() {
-  return (
-    <div>
-      <HelloWorld />
-    </div>
-  );
+    return (
+        <div>
+            <HelloWorld />
+        </div>
+    );
 }
 
 export default App;

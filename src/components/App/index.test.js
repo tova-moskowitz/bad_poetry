@@ -9,6 +9,6 @@ import App from './index';
 import HelloWorld from '../HelloWorld';
 
 it('Tests that the App renders.', () => {
-  const wrapper = shallow(<App />);
-  expect(wrapper.contains(<HelloWorld />)).toBeTruthy();
+    const wrapper = shallow(<App />);
+    expect(wrapper.contains(<HelloWorld />)).toBeTruthy();
 });
