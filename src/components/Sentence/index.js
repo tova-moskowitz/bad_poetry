@@ -1,7 +1,4 @@
 
-// This component is built with:
-// React: https://facebook.github.io/react/
-
 import React from 'react';
 
 const Sentence = React.createClass({
@@ -66,11 +63,16 @@ const Sentence = React.createClass({
         'her',
         'our'
     ],
+    getInitialState: function () {
+        return {
+            poem: this.getPoem()
+        };
+    },
     getWord: function (wordsArray) {
         const index = Math.floor(Math.random() * wordsArray.length);
         return wordsArray[index];
     },
-    render: function () {
+    getPoem: function () {
         return (
             <div>
                 Oh {this.getWord(this.adjectives)} {this.getWord(this.nounsSubject)},
@@ -79,6 +81,22 @@ const Sentence = React.createClass({
                 <br />
                 when {this.getWord(this.possessives)} {this.getWord(this.nounsObject)} doth {this.getWord(this.verbs)}
             </div>
+        );
+    },
+    handleClick: function () {
+        this.setState({
+            poem: this.getPoem()
+        });
+    },
+    render: function () {
+        return (
+            <div>
+                {this.state.poem}
+                <button onClick={this.handleClick}>
+                    Generate More Bad Poetry
+                </button>
+            </div>
+
         );
     },
 });
