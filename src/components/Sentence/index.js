@@ -63,11 +63,6 @@ const Sentence = React.createClass({
         'her',
         'our'
     ],
-    getInitialState: function () {
-        return {
-            sentence: this.getSentence()
-        };
-    },
     getWord: function (wordsArray) {
         const index = Math.floor(Math.random() * wordsArray.length);
         return wordsArray[index];
@@ -83,18 +78,10 @@ const Sentence = React.createClass({
             </div>
         );
     },
-    handleClick: function () {
-        this.setState({
-            sentence: this.getSentence()
-        });
-    },
     render: function () {
         return (
             <div>
-                {this.state.sentence}
-                <button onClick={this.handleClick}>
-                    Generate More Bad Poetry
-                </button>
+                {this.getSentence()}
             </div>
 
         );
