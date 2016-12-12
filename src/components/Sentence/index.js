@@ -67,7 +67,7 @@ const Sentence = React.createClass({
         const index = Math.floor(Math.random() * wordsArray.length);
         return wordsArray[index];
     },
-    getSentence: function () {
+    render: function () {
         return (
             <div>
                 Oh {this.getWord(this.adjectives)} {this.getWord(this.nounsSubject)},
@@ -75,13 +75,6 @@ const Sentence = React.createClass({
                 how {this.getWord(this.adjectives)} {this.getWord(this.pronouns)},
                 <br />
                 when {this.getWord(this.possessives)} {this.getWord(this.nounsObject)} doth {this.getWord(this.verbs)}
-            </div>
-        );
-    },
-    render: function () {
-        return (
-            <div>
-                {this.getSentence()}
             </div>
 
         );
