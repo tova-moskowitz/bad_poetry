@@ -65,14 +65,14 @@ const Sentence = React.createClass({
     ],
     getInitialState: function () {
         return {
-            poem: this.getPoem()
+            sentence: this.getSentence()
         };
     },
     getWord: function (wordsArray) {
         const index = Math.floor(Math.random() * wordsArray.length);
         return wordsArray[index];
     },
-    getPoem: function () {
+    getSentence: function () {
         return (
             <div>
                 Oh {this.getWord(this.adjectives)} {this.getWord(this.nounsSubject)},
@@ -85,13 +85,13 @@ const Sentence = React.createClass({
     },
     handleClick: function () {
         this.setState({
-            poem: this.getPoem()
+            sentence: this.getSentence()
         });
     },
     render: function () {
         return (
             <div>
-                {this.state.poem}
+                {this.state.sentence}
                 <button onClick={this.handleClick}>
                     Generate More Bad Poetry
                 </button>
