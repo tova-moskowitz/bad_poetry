@@ -1,3 +1,5 @@
+// This component is built with:
+// React: https://facebook.github.io/react/
 
 import React from 'react';
 
@@ -76,7 +78,6 @@ const Sentence = React.createClass({
                 <br />
                 when {this.getWord(this.possessives)} {this.getWord(this.nounsObject)} doth {this.getWord(this.verbs)}
             </div>
-
         );
     },
 });
