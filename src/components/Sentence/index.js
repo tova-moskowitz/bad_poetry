@@ -1,83 +1,29 @@
-
-// This component is built with:
-// React: https://facebook.github.io/react/
-
 import React from 'react';
+import wordBank from '../../lib/wordBank';
 
 const Sentence = React.createClass({
-    adjectives: [
-        'leathery',
-        'salmony',
-        'beknighted',
-        'scintillating',
-        'flabbergasted',
-        'distracted',
-        'shattered',
-        'foamy',
-        'primitive',
-        'blathery',
-        'crumpled',
-        'tiny'
-    ],
-    nounsSubject: [
-        'handkerchief',
-        'elephant tusk',
-        'umbrella',
-        'big foot',
-    ],
-    nounsObject: [
-        'fancily decorated toothpick',
-        'bunch of blue balloons',
-        'washing machine lint filter with towel fluff in it',
-        'banana with a brown spot'
-    ],
-    verbs: [
-        'skitter',
-        'froth',
-        'zoom forward',
-        'stew',
-        'waggle its little finger',
-        'stomp',
-        'chew a purple gumball',
-        'fray'
-    ],
-    // adverbs: [
-    //   'speedily',
-    //   'clammily',
-    //   'frighteningly',
-    //   'knowingly',
-    //   'blisteringly',
-    //   'alarmingly'
-    // ],
-    pronouns: [
-        'am I',
-        'art thou',
-        'is thee',
-        'are we',
-        'is he',
-        'is she',
-        'is it'
-    ],
-    possessives: [
-        'my',
-        'your',
-        'their',
-        'his',
-        'her',
-        'our'
-    ],
     getWord: function (wordsArray) {
         const index = Math.floor(Math.random() * wordsArray.length);
         return wordsArray[index];
     },
     render: function () {
+        const {
+            adjectives,
+            adverbs,
+            nounsObject,
+            nounsSubject,
+            possessives,
+            pronouns,
+            verbs
+        } = wordBank;
+
         return (
             <div>
-                Oh {this.getWord(this.adjectives)} {this.getWord(this.nounsSubject)},
+                Oh {this.getWord(adjectives)} {this.getWord(nounsSubject)},
                 <br />
-                how {this.getWord(this.adjectives)} {this.getWord(this.pronouns)},
+                how {this.getWord(adjectives)} {this.getWord(pronouns)},
                 <br />
-                when {this.getWord(this.possessives)} {this.getWord(this.nounsObject)} doth {this.getWord(this.verbs)}
+                when {this.getWord(possessives)} {this.getWord(nounsObject)} doth {this.getWord(verbs)}
             </div>
         );
     },
