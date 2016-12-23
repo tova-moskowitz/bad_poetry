@@ -6,7 +6,7 @@ import possessive from './possessive';
 import pronoun from './pronoun';
 import verb from './verb';
 
-export default {
+const wordBank = {
     adjective,
     adverb,
     nounObject,
@@ -15,3 +15,18 @@ export default {
     pronoun,
     verb
 };
+
+function getRandom(partOfSpeech) {
+    const words = wordBank[partOfSpeech];
+    const index = Math.floor(Math.random() * words.length);
+    return words[index];
+}
+
+const randomGetters = {};
+
+Object.keys(wordBank).map((part) => {
+    randomGetters[part] = () => getRandom(part);
+    return null;
+});
+
+export default randomGetters;
