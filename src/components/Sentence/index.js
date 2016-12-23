@@ -1,32 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import wordBank from '../../lib/wordBank';
 
-const Sentence = React.createClass({
-    getWord: function (wordsArray) {
-        const index = Math.floor(Math.random() * wordsArray.length);
-        return wordsArray[index];
-    },
-    render: function () {
-        const {
-            adjectives,
-            adverbs,
-            nounsObject,
-            nounsSubject,
-            possessives,
-            pronouns,
-            verbs
-        } = wordBank;
+const getWord = (partOfSpeech) => {
+    const words = wordBank[partOfSpeech];
+    const index = Math.floor(Math.random() * words.length);
+    return words[index];
+};
 
+export default class Sentence extends Component {
+    render() {
         return (
             <div>
-                Oh {this.getWord(adjectives)} {this.getWord(nounsSubject)},
+                Oh {getWord('adjective')} {getWord('nounSubject')},
                 <br />
-                how {this.getWord(adjectives)} {this.getWord(pronouns)},
+                how {getWord('adjective')} {getWord('pronoun')},
                 <br />
-                when {this.getWord(possessives)} {this.getWord(nounsObject)} doth {this.getWord(verbs)}
+                when {getWord('possessive')} {getWord('nounObject')}{' '}
+                doth {getWord('verb')}
             </div>
         );
-    },
-});
-
-export default Sentence;
+    }
+}
