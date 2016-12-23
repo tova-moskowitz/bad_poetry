@@ -22,11 +22,11 @@ function getRandom(partOfSpeech) {
     return words[index];
 }
 
-const randomGetters = {};
+const randomWordFetchers = {};
 
 Object.keys(wordBank).map((part) => {
-    randomGetters[part] = () => getRandom(part);
+    randomWordFetchers[part] = () => getRandom(part);
     return null;
 });
 
-export default randomGetters;
+export default randomWordFetchers;
