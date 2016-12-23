@@ -1,17 +1,17 @@
-import adjectives from './adjectives';
-import adverbs from './adverbs';
-import nounsObject from './nounsObject';
-import nounsSubject from './nounsSubject';
-import possessives from './possessives';
-import pronouns from './pronouns';
-import verbs from './verbs';
+import adjective from './adjective';
+import adverb from './adverb';
+import nounObject from './nounObject';
+import nounSubject from './nounSubject';
+import possessive from './possessive';
+import pronoun from './pronoun';
+import verb from './verb';
 
 export default {
-    adjectives,
-    adverbs,
-    nounsObject,
-    nounsSubject,
-    possessives,
-    pronouns,
-    verbs
+    adjective,
+    adverb,
+    nounObject,
+    nounSubject,
+    possessive,
+    pronoun,
+    verb
 };
