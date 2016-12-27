@@ -6,5 +6,16 @@ export default [
     'waggle its little finger',
     'stomp',
     'chew a purple gumball',
-    'fray'
+    'fray',
+    'warble',
+    'stub its toe',
+    'chuckle',
+    'lament loudly',
+    'darn its sock sulkily',
+    'fritter the day away',
+    'knit a tea cozy',
+    'open a rusty door',
+    'eat a mealy apple',
+    'pontificate',
+    'pick at a banjo'
 ];

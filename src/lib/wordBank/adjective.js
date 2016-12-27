@@ -10,5 +10,16 @@ export default [
     'primitive',
     'blathery',
     'crumpled',
-    'tiny'
+    'tiny',
+    'ridiculous',
+    'spotty',
+    'torrential',
+    'deflated',
+    'batty',
+    'rusty',
+    'garish',
+    'disorganized',
+    'lost',
+    'velvety',
+    'sheepish'
 ];

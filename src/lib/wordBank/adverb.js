@@ -4,5 +4,13 @@ export default [
     'frighteningly',
     'knowingly',
     'blisteringly',
-    'alarmingly'
+    'alarmingly',
+    'daftly',
+    'shrewdly',
+    'slyly',
+    'sluggishly',
+    'pompously',
+    'happily',
+    'dryly',
+    'gingerly'
 ];
