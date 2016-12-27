@@ -1,5 +1,5 @@
 import React from 'react';
-import wordBankShape from '../../shapes/wordBankShape';
+import wordBankShape from '../../../shapes/wordBankShape';
 
 function Vogon({ wordBank }) {
     const {

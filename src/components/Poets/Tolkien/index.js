@@ -1,5 +1,6 @@
 import React from 'react';
-import wordBankShape from '../../shapes/wordBankShape';
+import wordBankShape from '../../../shapes/wordBankShape';
+// let nlp = require('nlp_compromise'); // or nlp = window.nlp_compromise
 
 function Tolkien({ wordBank }) {
     const {
