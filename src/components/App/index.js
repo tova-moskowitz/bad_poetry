@@ -1,31 +1,34 @@
+import React, { Component } from 'react';
+import Poem from '../Poem';
+import Vogon from '../PoemTemplates/Vogon';
 
-// This component is built with:
-// React: https://facebook.github.io/react/
+class App extends Component {
+    constructor(props) {
+        super(props);
 
-import React from 'react';
-import Sentence from '../Sentence';
-
-const App = React.createClass({
-    getInitialState: function () {
-        return {
-            sentence: <Sentence />
+        this.state = {
+            template: Vogon
         };
-    },
-    handleClick: function () {
+
+        this.handleRefreshButtonClick = this.handleRefreshButtonClick.bind(this);
+    }
+
+    handleRefreshButtonClick() {
         this.setState({
-            sentence: <Sentence />
+            template: Vogon
         });
-    },
-    render: function () {
+    }
+
+    render() {
         return (
             <div>
-                {this.state.sentence}
-                <button onClick={this.handleClick}>
+                <button onClick={this.handleRefreshButtonClick}>
                     Generate More Bad Poetry
                 </button>
+                <Poem template={this.state.template} />
             </div>
         );
     }
-});
+}
 
 export default App;
