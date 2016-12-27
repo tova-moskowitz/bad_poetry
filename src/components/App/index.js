@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Poem from '../Poem';
 import Vogon from '../PoemTemplates/Vogon';
-import Tolkien from '../PoemTemplates/Tolkien';
 
 class App extends Component {
     constructor(props) {
@@ -16,7 +15,7 @@ class App extends Component {
 
     handleRefreshButtonClick() {
         this.setState({
-            template: Tolkien
+            template: Vogon
         });
     }
 
