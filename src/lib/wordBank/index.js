@@ -8,7 +8,7 @@ import possessive from './possessive';
 import preposition from './preposition';
 import pronoun from './pronoun';
 import verb from './verb';
-import { capitalizeFirstLetter} from '../../lib/';
+import { capitalizeFirstLetter } from '../../lib/';
 
 export default {
     adjective,

@@ -7,9 +7,11 @@ function Vogon({ wordBank }) {
         adjective
     } = wordBank;
 
+    const renderInterjection = () => interjection({ capitalizeFirstLetter: true });
+
     return (
         <div>
-            {interjection({ capitalizeFirstLetter: true })}, the Vogon is {adjective()}.
+            {renderInterjection()}, the Vogon is {adjective()}.
         </div>
     );
 }
