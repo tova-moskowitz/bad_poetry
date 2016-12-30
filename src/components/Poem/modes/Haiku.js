@@ -4,12 +4,12 @@ import wordBankShape from '../../../shapes/wordBankShape';
 function Haiku({ wordBank }) {
     const {
         verb,
-        nounObject
+        nounSubject
     } = wordBank;
 
     return (
         <div>
-            Don’t {verb()}, {nounObject()} –
+            Don’t {verb()}, {nounSubject()} –
             <br />
             Lovers, stars themselves,
             <br />

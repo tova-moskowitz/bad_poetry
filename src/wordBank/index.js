@@ -1,14 +1,14 @@
-import adjective from './adjective';
-import adverb from './adverb';
-import conjunction from './conjunction';
-import interjection from './interjection';
-import nounObject from './nounObject';
-import nounSubject from './nounSubject';
-import possessive from './possessive';
-import preposition from './preposition';
-import pronoun from './pronoun';
-import verb from './verb';
-import { capitalizeFirstLetter } from '../../lib/';
+import adjective from './parts/adjective';
+import adverb from './parts/adverb';
+import conjunction from './parts/conjunction';
+import interjection from './parts/interjection';
+import nounObject from './parts/nounObject';
+import nounSubject from './parts/nounSubject';
+import possessive from './parts/possessive';
+import preposition from './parts/preposition';
+import pronoun from './parts/pronoun';
+import verb from './parts/verb';
+import { capitalizeFirstLetter } from './utils';
 
 export default {
     adjective,

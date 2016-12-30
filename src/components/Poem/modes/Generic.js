@@ -1,6 +1,6 @@
 import React from 'react';
 import wordBankShape from '../../../shapes/wordBankShape';
-import { isVowel } from '../../../lib/';
+import { isVowel } from '../../../wordBank/utils';
 
 function Generic({ wordBank }) {
     const {

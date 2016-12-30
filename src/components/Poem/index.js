@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import wordBank, { generateWordFetchers } from '../../lib/wordBank';
+import wordBank, { generateWordFetchers } from '../../wordBank';
 import modes from './modes/';
 import styles from './Poem.css';
 
