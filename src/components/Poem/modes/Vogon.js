@@ -4,7 +4,12 @@ import wordBankShape from '../../../shapes/wordBankShape';
 function Vogon({ wordBank }) {
     const {
         interjection,
-        adjective
+        adjective,
+        nounSubject,
+        nounObject,
+        possessive,
+        pronoun,
+        verb
     } = wordBank;
 
     const renderInterjection = () => interjection({ capitalizeFirstLetter: true });
@@ -12,6 +17,14 @@ function Vogon({ wordBank }) {
     return (
         <div>
             {renderInterjection()}, the Vogon is {adjective()}.
+            <br />
+            <br />
+            Oh {adjective()} {nounSubject()},
+            <br />
+            how {adjective()} {pronoun()},
+            <br />
+            when {possessive()} {nounObject()}{' '}
+            doth {verb()}
         </div>
     );
 }
