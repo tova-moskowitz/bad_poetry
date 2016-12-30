@@ -17,10 +17,7 @@ class Poem extends Component {
 }
 
 Poem.propTypes = {
-    mode: PropTypes.oneOf([
-        'vogon',
-        'tolkien'
-    ])
+    mode: PropTypes.oneOf(Object.keys(modes))
 };
 
 export default Poem;
