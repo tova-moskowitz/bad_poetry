@@ -18,6 +18,10 @@ export function withIndefiniteArticle(word) {
     return `a ${word}`;
 }
 
+export function withDefiniteArticle(word) {
+    return `the ${word}`;
+}
+
 export function pluralize(noun) {
     return NLP.noun(noun).pluralize();
 }
