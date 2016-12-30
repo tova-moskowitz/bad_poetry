@@ -9,9 +9,11 @@ class App extends Component {
             mode: null
         };
 
+        // this.refreshPoem = this.refreshPoem.bind(this);
         this.handleVogonPoem = this.handleVogonPoem.bind(this);
         this.handleTolkienPoem = this.handleTolkienPoem.bind(this);
-        this.handleDefaultPoem = this.handleDefaultPoem.bind(this);
+        this.handleGenericPoem = this.handleGenericPoem.bind(this);
+        this.handleHaikuPoem = this.handleHaikuPoem.bind(this);
     }
 
     handleVogonPoem() {
@@ -26,23 +28,50 @@ class App extends Component {
         });
     }
 
-    handleDefaultPoem() {
+    handleGenericPoem() {
         this.setState({
             mode: null
+        });
+    }
+
+    handleHaikuPoem() {
+        this.setState({
+            mode: 'haiku'
+        });
+    }
+
+    refreshPoem(event) {
+        this.setState({
+            mode: event.currentTarget.title
         });
     }
 
     render() {
         return (
             <div>
-                <button onClick={this.handleDefaultPoem}>
-                    More bad poetry
+                <button
+                    title="generic"
+                    onClick={event => this.refreshPoem(event)}
+                >
+                    A simply bad poem
                 </button>
-                <button onClick={this.handleTolkienPoem}>
-                    See a Tolkien poem
+                <button
+                    title="tolkien"
+                    onClick={event => this.refreshPoem(event)}
+                >
+                    A bad Tolkien poem
                 </button>
-                <button onClick={this.handleVogonPoem}>
-                    See a Vogon poem
+                <button
+                    title="vogon"
+                    onClick={event => this.refreshPoem(event)}
+                >
+                    A bad Vogon poem
+                </button>
+                <button
+                    title="haiku"
+                    onClick={event => this.refreshPoem(event)}
+                >
+                    A bad haiku
                 </button>
                 <br />
                 <br />
