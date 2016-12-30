@@ -1,22 +1,17 @@
 import React from 'react';
 import wordBankShape from '../../../shapes/wordBankShape';
-import { isVowel } from '../../../wordBank/utils';
+import { withIndefiniteArticle } from '../../../wordBank/utils';
 
 function Generic({ wordBank }) {
     const {
         adjective
     } = wordBank;
 
-    const renderAdjectivePlusArticle = () => {
-        const adj = adjective();
-        const article = isVowel(adj.charAt(0)) ? 'an' : 'a';
-
-        return `${article} ${adj}`;
-    };
+    const adjWithArticle = withIndefiniteArticle(adjective());
 
     return (
         <div>
-            This is {renderAdjectivePlusArticle()} poem.
+            This is {adjWithArticle} poem.
         </div>
     );
 }

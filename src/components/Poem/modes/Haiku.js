@@ -1,19 +1,24 @@
 import React from 'react';
 import wordBankShape from '../../../shapes/wordBankShape';
+import { withIndefiniteArticle, pluralize } from '../../../wordBank/utils';
 
 function Haiku({ wordBank }) {
     const {
-        verb,
-        nounSubject
+        adjective,
+        nounSubject,
+        noun
     } = wordBank;
+
+    const nounWithArticle = withIndefiniteArticle(nounSubject());
+    const pluralNoun = pluralize(noun());
 
     return (
         <div>
-            Don’t {verb()}, {nounSubject()} –
+            Toward those {adjective()} {pluralNoun}
             <br />
-            Lovers, stars themselves,
+            We saw {nounWithArticle} descending
             <br />
-            Must {verb()}.
+            On a day in spring.
         </div>
     );
 }

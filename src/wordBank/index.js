@@ -8,6 +8,7 @@ import possessive from './parts/possessive';
 import preposition from './parts/preposition';
 import pronoun from './parts/pronoun';
 import verb from './parts/verb';
+import noun from './parts/noun';
 import { capitalizeFirstLetter } from './utils';
 
 export default {
@@ -15,6 +16,7 @@ export default {
     adverb,
     conjunction,
     interjection,
+    noun,
     nounObject,
     nounSubject,
     possessive,
