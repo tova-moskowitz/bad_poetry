@@ -1,21 +1,26 @@
 import React, { Component, PropTypes } from 'react';
+import wordBank, { generateWordFetchers } from '../../lib/wordBank';
+import modes from './modes/';
 import styles from './Poem.css';
-import wordBank from '../../lib/wordBank';
 
 class Poem extends Component {
     render() {
-        const Template = this.props.template;
+        const fetchers = generateWordFetchers(wordBank);
+        const template = modes[this.props.mode] || modes.generic;
 
         return (
             <div className={styles.Poem}>
-                <Template wordBank={wordBank} />
+                {template({ wordBank: fetchers })}
             </div>
         );
     }
 }
 
 Poem.propTypes = {
-    template: PropTypes.func.isRequired
+    mode: PropTypes.oneOf([
+        'vogon',
+        'tolkien'
+    ])
 };
 
 export default Poem;

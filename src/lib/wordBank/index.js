@@ -8,8 +8,9 @@ import possessive from './possessive';
 import preposition from './preposition';
 import pronoun from './pronoun';
 import verb from './verb';
+import { capitalizeFirstLetter} from '../../lib/';
 
-const wordBank = {
+export default {
     adjective,
     adverb,
     conjunction,
@@ -22,16 +23,25 @@ const wordBank = {
     verb
 };
 
-function getRandomWord(partOfSpeech) {
-    const words = wordBank[partOfSpeech];
-    const index = Math.floor(Math.random() * words.length);
-    return words[index];
+function getRandomWord(wordArray, opts) {
+    const index = Math.floor(Math.random() * wordArray.length);
+    const word = wordArray[index];
+
+    opts = opts || {};
+
+    if (opts.capitalizeFirstLetter) {
+        return capitalizeFirstLetter(word);
+    }
+
+    return word;
 }
 
-const randomWordFetchers = {};
-Object.keys(wordBank).map((part) => {
-    randomWordFetchers[part] = () => getRandomWord(part);
-    return null;
-});
+export function generateWordFetchers(allWordArrays) {
+    const ret = {};
+    Object.keys(allWordArrays).map((part) => {
+        ret[part] = opts => getRandomWord(allWordArrays[part], opts);
+        return null;
+    });
 
-export default randomWordFetchers;
+    return ret;
+}

@@ -1,42 +1,52 @@
 import React, { Component } from 'react';
-import Poem from '../Poem';
-import Vogon from '../Poets/Vogon/';
-import Tolkien from '../Poets/Tolkien/';
+import Poem from '../Poem/';
 
 class App extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            template: Tolkien
+            mode: null
         };
 
-        this.handleRefreshVogonPoem = this.handleRefreshVogonPoem.bind(this);
-        this.handleRefreshTolkienPoem = this.handleRefreshTolkienPoem.bind(this);
+        this.handleVogonPoem = this.handleVogonPoem.bind(this);
+        this.handleTolkienPoem = this.handleTolkienPoem.bind(this);
+        this.handleDefaultPoem = this.handleDefaultPoem.bind(this);
     }
 
-    handleRefreshVogonPoem() {
+    handleVogonPoem() {
         this.setState({
-            template: Vogon
+            mode: 'vogon'
         });
     }
 
-    handleRefreshTolkienPoem() {
+    handleTolkienPoem() {
         this.setState({
-            template: Tolkien
+            mode: 'tolkien'
+        });
+    }
+
+    handleDefaultPoem() {
+        this.setState({
+            mode: null
         });
     }
 
     render() {
         return (
             <div>
-                <button onClick={this.handleRefreshVogonPoem}>
-                    See a Vogon poem
+                <button onClick={this.handleDefaultPoem}>
+                    More bad poetry
                 </button>
-                <button onClick={this.handleRefreshTolkienPoem}>
+                <button onClick={this.handleTolkienPoem}>
                     See a Tolkien poem
                 </button>
-                <Poem template={this.state.template} />
+                <button onClick={this.handleVogonPoem}>
+                    See a Vogon poem
+                </button>
+                <br />
+                <br />
+                <Poem mode={this.state.mode} />
             </div>
         );
     }
