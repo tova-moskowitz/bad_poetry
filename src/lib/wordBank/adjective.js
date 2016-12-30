@@ -21,5 +21,7 @@ export default [
     'disorganized',
     'lost',
     'velvety',
-    'sheepish'
+    'sheepish',
+    'aristocratic',
+    'angry'
 ];
