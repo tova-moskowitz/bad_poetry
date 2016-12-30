@@ -8,12 +8,6 @@ class App extends Component {
         this.state = {
             mode: null
         };
-
-        // this.refreshPoem = this.refreshPoem.bind(this);
-        this.handleVogonPoem = this.handleVogonPoem.bind(this);
-        this.handleTolkienPoem = this.handleTolkienPoem.bind(this);
-        this.handleGenericPoem = this.handleGenericPoem.bind(this);
-        this.handleHaikuPoem = this.handleHaikuPoem.bind(this);
     }
 
     handleVogonPoem() {
