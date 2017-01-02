@@ -13,6 +13,13 @@ function Haiku({ wordBank }) {
 
     const nounWithArticle = withIndefiniteArticle(nounSubject());
     const pluralNoun = pluralize(noun());
+    const unitPhrase = () => {
+        const unit = unitOfTime();
+        const article = unit === 'day'
+            ? 'On a'
+            : 'In a';
+        return `${article} ${unit}`;
+    };
 
     return (
         <div>
@@ -20,7 +27,7 @@ function Haiku({ wordBank }) {
             <br />
             We saw {nounWithArticle} descending
             <br />
-            On a {unitOfTime()} in {season()}.
+            {unitPhrase()} in {season()}.
         </div>
     );
 }
