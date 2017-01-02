@@ -20,12 +20,12 @@ class App extends Component {
         return (
             <div>
                 <button
-                    onClick={() => this.refreshPoem(event'generic'
+                    onClick={() => this.refreshPoem('generic')}
                 >
                     A simply bad poem
                 </button>
                 <button
-                    onClick={() => this.refreshPoem(event'tolkien'
+                    onClick={() => this.refreshPoem('tolkien')}
                 >
                     A bad Tolkien poem
                 </button>
