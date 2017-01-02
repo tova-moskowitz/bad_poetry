@@ -1,31 +1,50 @@
+import React, { Component } from 'react';
+import Poem from '../Poem/';
 
-// This component is built with:
-// React: https://facebook.github.io/react/
+class App extends Component {
+    constructor(props) {
+        super(props);
 
-import React from 'react';
-import Sentence from '../Sentence';
-
-const App = React.createClass({
-    getInitialState: function () {
-        return {
-            sentence: <Sentence />
+        this.state = {
+            mode: null
         };
-    },
-    handleClick: function () {
+    }
+
+    refreshPoem(mode) {
         this.setState({
-            sentence: <Sentence />
+            mode
         });
-    },
-    render: function () {
+    }
+
+    render() {
         return (
             <div>
-                {this.state.sentence}
-                <button onClick={this.handleClick}>
-                    Generate More Bad Poetry
+                <button
+                    onClick={() => this.refreshPoem('generic')}
+                >
+                    A simply bad poem
                 </button>
+                <button
+                    onClick={() => this.refreshPoem('tolkien')}
+                >
+                    A bad Tolkien poem
+                </button>
+                <button
+                    onClick={() => this.refreshPoem('vogon')}
+                >
+                    A bad Vogon poem
+                </button>
+                <button
+                    onClick={() => this.refreshPoem('haiku')}
+                >
+                    A bad haiku
+                </button>
+                <br />
+                <br />
+                <Poem mode={this.state.mode} />
             </div>
         );
     }
-});
+}
 
 export default App;
