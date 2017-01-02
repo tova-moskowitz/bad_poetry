@@ -34,10 +34,3 @@ Vogon.propTypes = {
 };
 
 export default Vogon;
-
-// Oh {adjective()} {nounSubject()},
-// <br />
-// how {adjective()} {pronoun()},
-// <br />
-// when {possessive()} {nounObject()}{' '}
-// doth {verb()}

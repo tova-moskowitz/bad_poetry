@@ -10,33 +10,9 @@ class App extends Component {
         };
     }
 
-    handleVogonPoem() {
+    refreshPoem(mode) {
         this.setState({
-            mode: 'vogon'
-        });
-    }
-
-    handleTolkienPoem() {
-        this.setState({
-            mode: 'tolkien'
-        });
-    }
-
-    handleGenericPoem() {
-        this.setState({
-            mode: null
-        });
-    }
-
-    handleHaikuPoem() {
-        this.setState({
-            mode: 'haiku'
-        });
-    }
-
-    refreshPoem(event) {
-        this.setState({
-            mode: event.currentTarget.title
+            mode
         });
     }
 
@@ -44,26 +20,22 @@ class App extends Component {
         return (
             <div>
                 <button
-                    title="generic"
-                    onClick={event => this.refreshPoem(event)}
+                    onClick={() => this.refreshPoem(event'generic'
                 >
                     A simply bad poem
                 </button>
                 <button
-                    title="tolkien"
-                    onClick={event => this.refreshPoem(event)}
+                    onClick={() => this.refreshPoem(event'tolkien'
                 >
                     A bad Tolkien poem
                 </button>
                 <button
-                    title="vogon"
-                    onClick={event => this.refreshPoem(event)}
+                    onClick={() => this.refreshPoem('vogon')}
                 >
                     A bad Vogon poem
                 </button>
                 <button
-                    title="haiku"
-                    onClick={event => this.refreshPoem(event)}
+                    onClick={() => this.refreshPoem('haiku')}
                 >
                     A bad haiku
                 </button>
