@@ -9,6 +9,7 @@ import preposition from './parts/preposition';
 import pronoun from './parts/pronoun';
 import verb from './parts/verb';
 import noun from './parts/noun';
+import { day, month, unitOfTime, season } from './parts/time';
 import { capitalizeFirstLetter } from './utils';
 
 export default {
@@ -22,7 +23,11 @@ export default {
     possessive,
     preposition,
     pronoun,
-    verb
+    verb,
+    day,
+    month,
+    unitOfTime,
+    season
 };
 
 function getRandomWord(wordArray, opts) {

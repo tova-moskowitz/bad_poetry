@@ -11,5 +11,9 @@ export default PropTypes.shape({
     possessive: PropTypes.arrayOf(PropTypes.string.isRequired),
     preposition: PropTypes.arrayOf(PropTypes.string.isRequired),
     pronoun: PropTypes.arrayOf(PropTypes.string.isRequired),
-    verb: PropTypes.arrayOf(PropTypes.string.isRequired)
+    verb: PropTypes.arrayOf(PropTypes.string.isRequired),
+    day: PropTypes.arrayOf(PropTypes.string.isRequired),
+    month: PropTypes.arrayOf(PropTypes.string.isRequired),
+    unitOfTime: PropTypes.arrayOf(PropTypes.string.isRequired),
+    season: PropTypes.arrayOf(PropTypes.string.isRequired)
 });

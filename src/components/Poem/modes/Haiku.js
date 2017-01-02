@@ -6,7 +6,9 @@ function Haiku({ wordBank }) {
     const {
         adjective,
         nounSubject,
-        noun
+        noun,
+        unitOfTime,
+        season
     } = wordBank;
 
     const nounWithArticle = withIndefiniteArticle(nounSubject());
@@ -18,7 +20,7 @@ function Haiku({ wordBank }) {
             <br />
             We saw {nounWithArticle} descending
             <br />
-            On a day in spring.
+            On a {unitOfTime()} in {season()}.
         </div>
     );
 }
