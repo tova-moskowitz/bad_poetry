@@ -30,7 +30,7 @@ export default {
     season
 };
 
-function getRandomWord(wordArray, opts) {
+export function getRandomWord(wordArray, opts) {
     const index = Math.floor(Math.random() * wordArray.length);
     const word = wordArray[index];
 
