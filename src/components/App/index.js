@@ -1,47 +1,43 @@
+import axios from 'axios';
 import React, { Component } from 'react';
-import Poem from '../Poem/';
 
 class App extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            mode: null
+            noun: null,
+            adjective: null
         };
+
+        this.fetchWords = this.fetchWords.bind(this);
     }
 
-    refreshPoem(mode) {
-        this.setState({
-            mode
+    fetchWords(desiredWordTypes) {
+        axios.post('/api/random', {
+            words: desiredWordTypes
+        })
+        .then((res) => {
+            if (!res.data) {
+                return;
+            }
+
+            this.setState(res.data);
         });
+    }
+
+    componentDidMount() {
+        this.fetchWords(['noun', 'adjective']);
     }
 
     render() {
         return (
             <div>
-                <button
-                    onClick={() => this.refreshPoem('generic')}
-                >
-                    A simply bad poem
+                <button onClick={() => this.fetchWords(['noun', 'adjective'])}>
+                    Refresh
                 </button>
-                <button
-                    onClick={() => this.refreshPoem('tolkien')}
-                >
-                    A bad Tolkien poem
-                </button>
-                <button
-                    onClick={() => this.refreshPoem('vogon')}
-                >
-                    A bad Vogon poem
-                </button>
-                <button
-                    onClick={() => this.refreshPoem('haiku')}
-                >
-                    A bad haiku
-                </button>
-                <br />
-                <br />
-                <Poem mode={this.state.mode} />
+                <br /><br />
+                This is a {this.state.adjective} {this.state.noun}.
             </div>
         );
     }
