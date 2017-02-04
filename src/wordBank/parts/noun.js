@@ -1,6 +1,6 @@
 export default [
     'toothpick',
-    'balloons',
+    'balloon',
     'towel',
     'banana',
     'hammock',

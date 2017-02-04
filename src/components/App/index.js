@@ -11,6 +11,16 @@ class App extends Component {
         };
 
         this.fetchWords = this.fetchWords.bind(this);
+        this.fetchNoun = this.fetchNoun.bind(this);
+    }
+
+    fetchNoun() {
+        axios.get('/api/random-word/noun')
+            .then((res) => {
+                this.setState({
+                    noun: res.data.noun
+                });
+            });
     }
 
     fetchWords(desiredWordTypes) {
@@ -27,17 +37,18 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.fetchWords(['noun', 'adjective']);
+        this.fetchNoun();
+        // this.fetchWords(['noun', 'adjective']);
     }
 
     render() {
         return (
             <div>
-                <button onClick={() => this.fetchWords(['noun', 'adjective'])}>
+                <button onClick={() => this.fetchNoun()}>
                     Refresh
                 </button>
                 <br /><br />
-                This is a {this.state.adjective} {this.state.noun}.
+                This is a {this.state.noun}.
             </div>
         );
     }

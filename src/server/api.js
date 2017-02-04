@@ -3,7 +3,23 @@ import wordBank, { getRandomWord } from '../wordBank';
 
 const router = Router();
 
-router.post('/random', (req, res) => {
+router.get('/random-word/:partOfSpeech', (req, res) => {
+    const partOfSpeech = req.params.partOfSpeech;
+    const arr = wordBank[partOfSpeech];
+
+    if (!arr) {
+        res.status(404).json({
+            error: `${partOfSpeech} is an invalid part of speech`
+        });
+        return;
+    }
+
+    res.json({
+        [partOfSpeech]: getRandomWord(arr)
+    });
+});
+
+router.post('/random-words', (req, res) => {
     const words = req.body && req.body.words;
     const results = {};
 
