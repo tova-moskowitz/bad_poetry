@@ -1,7 +1,13 @@
 import NLP from 'nlp_compromise';
 
+const VOWELS = ['a', 'e', 'i', 'o', 'u'];
+
 export function isVowel(letter) {
-    return ['a', 'e', 'i', 'o', 'u'].indexOf(letter) > -1;
+    return VOWELS.indexOf(letter) > -1;
+}
+
+export function startsWithVowel(word) {
+    return isVowel(word.charAt(0));
 }
 
 export function capitalizeFirstLetter(word) {
@@ -9,17 +15,11 @@ export function capitalizeFirstLetter(word) {
 }
 
 export function withIndefiniteArticle(word) {
-    const startsWithVowel = isVowel(word.charAt(0));
-
-    if (startsWithVowel) {
+    if (startsWithVowel(word)) {
         return `an ${word}`;
     }
 
     return `a ${word}`;
-}
-
-export function withDefiniteArticle(word) {
-    return `the ${word}`;
 }
 
 export function pluralize(noun) {
