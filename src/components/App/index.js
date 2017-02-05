@@ -15,30 +15,17 @@ class App extends Component {
     }
 
     fetchNoun() {
-        axios.get('/api/random-word/noun')
-            .then((res) => {
-                this.setState({
-                    noun: res.data.noun
-                });
-            });
+        axios.get('/api/random-words/noun/?withIndefiniteArticle=true')
+            .then(res => this.setState({ noun: res.data.noun }));
     }
 
-    fetchWords(desiredWordTypes) {
-        axios.post('/api/random', {
-            words: desiredWordTypes
-        })
-        .then((res) => {
-            if (!res.data) {
-                return;
-            }
-
-            this.setState(res.data);
-        });
+    fetchWords() {
+        axios.post('/api/random-words')
+            .then(res => this.setState(res.data));
     }
 
     componentDidMount() {
         this.fetchNoun();
-        // this.fetchWords(['noun', 'adjective']);
     }
 
     render() {
@@ -48,7 +35,7 @@ class App extends Component {
                     Refresh
                 </button>
                 <br /><br />
-                This is a {this.state.noun}.
+                This is {this.state.noun}.
             </div>
         );
     }
