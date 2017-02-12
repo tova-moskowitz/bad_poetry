@@ -1,16 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import styles from './SelectionBlock.scss';
-
-const parts = [
-    'adjective',
-    'adverb',
-    'conjunction',
-    'interjection',
-    'noun',
-    'preposition',
-    'pronoun',
-    'verb'
-];
+import { parts } from '../../wordBank';
 
 class SelectionBlock extends Component {
     constructor(props) {

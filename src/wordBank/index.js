@@ -10,9 +10,8 @@ import pronoun from './parts/pronoun';
 import verb from './parts/verb';
 import noun from './parts/noun';
 import { day, month, unitOfTime, season } from './parts/time';
-import { capitalizeFirstLetter } from './utils';
 
-export default {
+const wordBank = {
     adjective,
     adverb,
     conjunction,
@@ -30,25 +29,5 @@ export default {
     season
 };
 
-function getRandomWord(wordArray, opts) {
-    const index = Math.floor(Math.random() * wordArray.length);
-    const word = wordArray[index];
-
-    opts = opts || {};
-
-    if (opts.capitalizeFirstLetter) {
-        return capitalizeFirstLetter(word);
-    }
-
-    return word;
-}
-
-export function generateWordFetchers(allWordArrays) {
-    const ret = {};
-    Object.keys(allWordArrays).map((part) => {
-        ret[part] = opts => getRandomWord(allWordArrays[part], opts);
-        return null;
-    });
-
-    return ret;
-}
+export default wordBank;
+export const parts = Object.keys(wordBank);
