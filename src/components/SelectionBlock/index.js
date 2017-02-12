@@ -53,18 +53,27 @@ class SelectionBlock extends Component {
     }
 
     render() {
-        const partOfSpeechOptions = parts.map((part, i) => (
+        const partsOfSpeech = parts.map((part, i) => (
             <option value={part} key={i}>
                 {part}
             </option>
         ));
 
+        const staticText = (
+            <option
+                value="staticText"
+                key={parts.length}
+            >
+                Static text...
+            </option>
+        );
+
         return (
             <div className={styles.SelectionBlock}>
+                {this.props.label}
                 <select onChange={this.handlePartOfSpeech}>
-                    <option defaultValue>{this.props.label}</option>
-                    {partOfSpeechOptions}
-                    <option value="staticText" key={parts.length}>Static text...</option>
+                    {partsOfSpeech}
+                    {staticText}
                 </select>
 
                 {this.state.showStaticTextField && (
@@ -92,7 +101,7 @@ SelectionBlock.propTypes = {
 };
 
 SelectionBlock.defaultProps = {
-    label: 'Choose'
+    label: 'Choose a part of speech: '
 };
 
 export default SelectionBlock;

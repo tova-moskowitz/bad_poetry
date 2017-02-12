@@ -6,12 +6,17 @@ import styles from './PoemBuilder.scss';
 
 class PoemBuilder extends Component {
     render() {
-        const { template } = this.props;
+        const {
+            template,
+            handleAddToTemplate,
+            handleRemoveFromTemplate
+        } = this.props;
+
         const tiles = template.map((part, i) => (
             <Tile
                 key={i}
-                templateIndex={i}
-                onRemove={this.props.handleRemoveFromTemplate}
+                templatePosition={i}
+                onRemove={handleRemoveFromTemplate}
             >
                 {part}
             </Tile>
@@ -19,7 +24,7 @@ class PoemBuilder extends Component {
 
         return (
             <div className={styles.PoemBuilder}>
-                <SelectionBlock onSelectPart={this.props.handleAddToTemplate} />
+                <SelectionBlock onSelectPart={handleAddToTemplate} />
                 {tiles}
             </div>
         );

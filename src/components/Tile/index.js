@@ -3,12 +3,12 @@ import styles from './Tile.scss';
 
 class Tile extends Component {
     render() {
-        const { children, onRemove, templateIndex } = this.props;
+        const { children, onRemove, templatePosition } = this.props;
 
         return (
             <div className={styles.Tile}>
                 {children}
-                <button onClick={() => onRemove(templateIndex)}>x</button>
+                <button onClick={() => onRemove(templatePosition)}>x</button>
             </div>
         );
     }
@@ -17,7 +17,7 @@ class Tile extends Component {
 Tile.propTypes = {
     children: PropTypes.string.isRequired,
     onRemove: PropTypes.func.isRequired,
-    templateIndex: PropTypes.number.isRequired
+    templatePosition: PropTypes.number.isRequired
 };
 
 export default Tile;
