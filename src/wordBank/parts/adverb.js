@@ -12,5 +12,7 @@ export default [
     'pompously',
     'happily',
     'dryly',
-    'gingerly'
+    'gingerly',
+    'sulkily',
+    'loudly'
 ];

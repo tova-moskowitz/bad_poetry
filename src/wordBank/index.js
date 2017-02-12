@@ -6,10 +6,12 @@ import nounObject from './parts/nounObject';
 import nounSubject from './parts/nounSubject';
 import possessive from './parts/possessive';
 import preposition from './parts/preposition';
-import pronoun from './parts/pronoun';
+import pronounSubject from './parts/pronounSubject';
+import pronounObject from './parts/pronounObject';
+import archaicPronoun from './parts/archaicPronoun';
 import verb from './parts/verb';
 import noun from './parts/noun';
-import { day, month, unitOfTime, season } from './parts/time';
+import { dayName, monthName, unitOfTime, season } from './parts/time';
 
 function getRandom(wordArray) {
     const index = Math.floor(Math.random() * wordArray.length);
@@ -19,6 +21,7 @@ function getRandom(wordArray) {
 const wordBank = {
     adjective,
     adverb,
+    archaicPronoun,
     conjunction,
     interjection,
     noun,
@@ -26,10 +29,11 @@ const wordBank = {
     nounSubject,
     possessive,
     preposition,
-    pronoun,
+    pronounSubject,
+    pronounObject,
     verb,
-    day,
-    month,
+    dayName,
+    monthName,
     unitOfTime,
     season
 };

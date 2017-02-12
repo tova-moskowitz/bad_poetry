@@ -4,6 +4,10 @@ export default [
     'under',
     'before',
     'between',
-    'after',
-    'on'
+    'on',
+    'beside',
+    'beyond',
+    'inside',
+    'within',
+    'around'
 ];
