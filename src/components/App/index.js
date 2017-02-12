@@ -1,47 +1,71 @@
 import React, { Component } from 'react';
-import Poem from '../Poem/';
+import PoemBuilder from '../PoemBuilder';
+import Poem from '../Poem';
+// import Tile from '../Tile';
 
 class App extends Component {
     constructor(props) {
         super(props);
 
+        this.handleAddToTemplate = this.handleAddToTemplate.bind(this);
+        this.handleRemoveFromTemplate = this.handleRemoveFromTemplate.bind(this);
+        this.toggleEditingMode = this.toggleEditingMode.bind(this);
+
         this.state = {
-            mode: null
+            template: ['Hello', 'there', 'title', 'lastName'],
+            inEditingMode: true
         };
     }
 
-    refreshPoem(mode) {
+    handleAddToTemplate(part) {
         this.setState({
-            mode
+            template: [...this.state.template, part]
         });
     }
 
+    handleRemoveFromTemplate(index) {
+        this.setState({
+            template: this.state.template.filter((_, i) => i !== index)
+        });
+    }
+
+    toggleEditingMode() {
+        this.setState({
+            inEditingMode: !this.state.inEditingMode
+        });
+    }
+
+    renderPoemBuilder() {
+        return (
+            <PoemBuilder
+                template={this.state.template}
+                handleAddToTemplate={this.handleAddToTemplate}
+                handleRemoveFromTemplate={this.handleRemoveFromTemplate}
+            />
+        );
+    }
+
+    renderPoem() {
+        return (
+            <Poem template={this.state.template} />
+        );
+    }
+
     render() {
+        const { inEditingMode } = this.state;
+
         return (
             <div>
-                <button
-                    onClick={() => this.refreshPoem('generic')}
-                >
-                    A simply bad poem
+                <h1>Create a bad poem</h1>
+
+                <button onClick={this.toggleEditingMode}>
+                    Switch editing mode to { inEditingMode ? 'off' : 'on'}
                 </button>
-                <button
-                    onClick={() => this.refreshPoem('tolkien')}
-                >
-                    A bad Tolkien poem
-                </button>
-                <button
-                    onClick={() => this.refreshPoem('vogon')}
-                >
-                    A bad Vogon poem
-                </button>
-                <button
-                    onClick={() => this.refreshPoem('haiku')}
-                >
-                    A bad haiku
-                </button>
-                <br />
-                <br />
-                <Poem mode={this.state.mode} />
+
+                {inEditingMode
+                    ? this.renderPoemBuilder()
+                    : this.renderPoem()
+                }
             </div>
         );
     }
