@@ -33,7 +33,8 @@ class App extends Component {
 
     handleClearTemplate() {
         this.setState({
-            template: []
+            template: [],
+            inEditingMode: true
         });
     }
 
@@ -50,13 +51,17 @@ class App extends Component {
     }
 
     renderPoemBuilder() {
+        const { template } = this.state;
+
         return (
             <div>
-                <button onClick={this.turnOffEditMode}>View Poem</button>
+                {template.length > 0 && (
+                    <button onClick={this.turnOffEditMode}>View Poem</button>)
+                }
 
                 <hr />
                 <PoemBuilder
-                    template={this.state.template}
+                    template={template}
                     handleAddToTemplate={this.handleAddToTemplate}
                     handleRemoveFromTemplate={this.handleRemoveFromTemplate}
                 />
@@ -82,7 +87,6 @@ class App extends Component {
         return (
             <div>
                 <h1>Create a bad poem</h1>
-
 
                 {inEditingMode
                     ? this.renderPoemBuilder()
