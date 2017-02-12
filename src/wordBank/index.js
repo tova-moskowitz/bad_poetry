@@ -11,6 +11,11 @@ import verb from './parts/verb';
 import noun from './parts/noun';
 import { day, month, unitOfTime, season } from './parts/time';
 
+function getRandom(wordArray) {
+    const index = Math.floor(Math.random() * wordArray.length);
+    return wordArray[index];
+}
+
 const wordBank = {
     adjective,
     adverb,
@@ -29,5 +34,12 @@ const wordBank = {
     season
 };
 
-export default wordBank;
 export const parts = Object.keys(wordBank);
+
+const wordBankFetchers = {};
+
+parts.forEach((part) => {
+    wordBankFetchers[part] = () => getRandom(wordBank[part]);
+});
+
+export default wordBankFetchers;

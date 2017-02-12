@@ -9,6 +9,7 @@ class App extends Component {
 
         this.handleAddToTemplate = this.handleAddToTemplate.bind(this);
         this.handleRemoveFromTemplate = this.handleRemoveFromTemplate.bind(this);
+        this.handleClearTemplate = this.handleClearTemplate.bind(this);
         this.toggleEditingMode = this.toggleEditingMode.bind(this);
 
         this.state = {
@@ -26,6 +27,12 @@ class App extends Component {
     handleRemoveFromTemplate(index) {
         this.setState({
             template: this.state.template.filter((_, i) => i !== index)
+        });
+    }
+
+    handleClearTemplate() {
+        this.setState({
+            template: []
         });
     }
 
@@ -57,6 +64,10 @@ class App extends Component {
         return (
             <div>
                 <h1>Create a bad poem</h1>
+
+                <button onClick={this.handleClearTemplate}>
+                    Start over
+                </button>
 
                 <button onClick={this.toggleEditingMode}>
                     {inEditingMode
