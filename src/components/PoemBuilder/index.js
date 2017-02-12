@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import SelectionBlock from '../SelectionBlock';
+import PartOfSpeechSelector from '../PartOfSpeechSelector';
 import Tile from '../Tile';
 
 import styles from './PoemBuilder.scss';
@@ -12,20 +12,31 @@ class PoemBuilder extends Component {
             handleRemoveFromTemplate
         } = this.props;
 
-        const tiles = template.map((part, i) => (
-            <Tile
-                key={i}
-                templatePosition={i}
-                onRemove={handleRemoveFromTemplate}
-            >
-                {part}
-            </Tile>
-        ));
-
         return (
             <div className={styles.PoemBuilder}>
-                <SelectionBlock onSelectPart={handleAddToTemplate} />
-                {tiles}
+                Choose a part of speech: <PartOfSpeechSelector onChange={handleAddToTemplate} />
+                Add static text: <form
+                    className={styles.staticTextForm}
+                    onSubmit={this.handleAddToTemplate}
+                >
+                    <input
+                        type="text"
+                        ref={(input) => {
+                            this.input = input;
+                        }}
+                    />
+                    <button>save</button>
+                </form>
+
+                {template.map((part, i) => (
+                    <Tile
+                        key={i}
+                        templatePosition={i}
+                        onRemove={handleRemoveFromTemplate}
+                    >
+                        {part}
+                    </Tile>
+                ))}
             </div>
         );
     }

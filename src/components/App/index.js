@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import PoemBuilder from '../PoemBuilder';
 import Poem from '../Poem';
-// import Tile from '../Tile';
 
 class App extends Component {
     constructor(props) {
         super(props);
 
         this.handleAddToTemplate = this.handleAddToTemplate.bind(this);
+        this.handleAddPartOfSpeech = this.handleAddPartOfSpeech.bind(this);
+        this.handleAddStaticText = this.handleAddStaticText.bind(this);
         this.handleRemoveFromTemplate = this.handleRemoveFromTemplate.bind(this);
         this.handleClearTemplate = this.handleClearTemplate.bind(this);
         this.turnOnEditMode = this.turnOnEditMode.bind(this);
@@ -19,9 +20,21 @@ class App extends Component {
         };
     }
 
-    handleAddToTemplate(part) {
+    handleAddToTemplate(event) {
         this.setState({
-            template: [...this.state.template, part]
+            template: [...this.state.template, event.currentTarget.value]
+        });
+    }
+
+    handleAddPartOfSpeech(event) {
+        this.setState({
+            template: [...this.state.template, event.currentTarget.value]
+        });
+    }
+
+    handleAddStaticText(event) {
+        this.setState({
+            template: [...this.state.template, event.currentTarget.value]
         });
     }
 
@@ -63,6 +76,8 @@ class App extends Component {
                 <PoemBuilder
                     template={template}
                     handleAddToTemplate={this.handleAddToTemplate}
+                    handleAddPartOfSpeech={this.handleAddPartOfSpeech}
+                    handleAddStaticText={this.handleAddStaticText}
                     handleRemoveFromTemplate={this.handleRemoveFromTemplate}
                 />
             </div>
