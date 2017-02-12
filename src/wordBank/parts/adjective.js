@@ -23,5 +23,8 @@ export default [
     'velvety',
     'sheepish',
     'aristocratic',
-    'angry'
+    'angry',
+    'little',
+    'mealy',
+    'purple'
 ];

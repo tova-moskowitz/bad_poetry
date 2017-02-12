@@ -12,8 +12,14 @@ export default [
     'toupee',
     'canteen',
     'dollar',
+    'toe',
     'box',
     'igloo',
     'icebox',
-    'fingernail'
+    'fingernail',
+    'gumball',
+    'sock',
+    'tea cozy',
+    'apple',
+    'finger'
 ];
