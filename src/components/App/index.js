@@ -10,7 +10,8 @@ class App extends Component {
         this.handleAddToTemplate = this.handleAddToTemplate.bind(this);
         this.handleRemoveFromTemplate = this.handleRemoveFromTemplate.bind(this);
         this.handleClearTemplate = this.handleClearTemplate.bind(this);
-        this.toggleEditingMode = this.toggleEditingMode.bind(this);
+        this.turnOnEditMode = this.turnOnEditMode.bind(this);
+        this.turnOffEditMode = this.turnOffEditMode.bind(this);
 
         this.state = {
             template: ['noun', 'verb'],
@@ -36,25 +37,42 @@ class App extends Component {
         });
     }
 
-    toggleEditingMode() {
+    turnOnEditMode() {
         this.setState({
-            inEditingMode: !this.state.inEditingMode
+            inEditingMode: true
+        });
+    }
+
+    turnOffEditMode() {
+        this.setState({
+            inEditingMode: false
         });
     }
 
     renderPoemBuilder() {
         return (
-            <PoemBuilder
-                template={this.state.template}
-                handleAddToTemplate={this.handleAddToTemplate}
-                handleRemoveFromTemplate={this.handleRemoveFromTemplate}
-            />
+            <div>
+                <button onClick={this.turnOffEditMode}>View Poem</button>
+
+                <hr />
+                <PoemBuilder
+                    template={this.state.template}
+                    handleAddToTemplate={this.handleAddToTemplate}
+                    handleRemoveFromTemplate={this.handleRemoveFromTemplate}
+                />
+            </div>
         );
     }
 
     renderPoem() {
         return (
-            <Poem template={this.state.template} />
+            <div>
+                <button onClick={this.turnOnEditMode}>Back to editing</button>
+                <button onClick={this.turnOffEditMode}>Refresh</button>
+                <hr />
+
+                <Poem template={this.state.template} />
+            </div>
         );
     }
 
@@ -65,21 +83,17 @@ class App extends Component {
             <div>
                 <h1>Create a bad poem</h1>
 
-                <button onClick={this.handleClearTemplate}>
-                    Start over
-                </button>
-
-                <button onClick={this.toggleEditingMode}>
-                    {inEditingMode
-                        ? 'Run poem'
-                        : 'Edit poem'
-                    }
-                </button>
 
                 {inEditingMode
                     ? this.renderPoemBuilder()
                     : this.renderPoem()
                 }
+
+                <hr />
+
+                <button onClick={this.handleClearTemplate}>
+                    Start over
+                </button>
             </div>
         );
     }
