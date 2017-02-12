@@ -12,7 +12,7 @@ class App extends Component {
         this.toggleEditingMode = this.toggleEditingMode.bind(this);
 
         this.state = {
-            template: ['Hello', 'there', 'title', 'lastName'],
+            template: ['noun', 'verb'],
             inEditingMode: true
         };
     }
@@ -59,7 +59,10 @@ class App extends Component {
                 <h1>Create a bad poem</h1>
 
                 <button onClick={this.toggleEditingMode}>
-                    Switch editing mode to { inEditingMode ? 'off' : 'on'}
+                    {inEditingMode
+                        ? 'Run poem'
+                        : 'Edit poem'
+                    }
                 </button>
 
                 {inEditingMode
