@@ -12,11 +12,14 @@ class Tile extends Component {
         } = this.props;
 
         return (
-            <div className={cx(styles.Tile, {
-                [styles.staticText]: isStaticText
-            })}>
+            <div className={styles.Tile}>
                 {children}
-                <button onClick={() => onRemove(templatePosition)}>x</button>
+                <button
+                    className={styles.removeButton}
+                    onClick={() => onRemove(templatePosition)}
+                >
+                    x
+                </button>
             </div>
         );
     }

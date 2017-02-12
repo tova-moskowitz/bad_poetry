@@ -1,12 +1,23 @@
 :local .Tile {
     display: inline-block;
         margin:.25em;
-        padding:.2em .5em .3em;
+        padding:.5em 1em;
         line-height: 1em;
         color: #fff;
-        background-color: #e01ac4;
+        background-color: #000;
+        border-radius: 20px;
 
-        .isStaticText {
+        .partOfSpeech {
+        }
+
+        .staticText {
             background-color: #fff;
+        }
+
+        .removeButton {
+            border: none;
+            padding:0 .25em;
+            background-color:white;
+            margin-left: .25em;
         }
 }
